@@ -21,7 +21,7 @@ public class ADStatRepository extends Repository {
 
     public ArrayList<AdVisitTime> queryAll() throws SQLException {
         ArrayList<AdVisitTime> adVisitTimeArrayList = new ArrayList<>();
-        String sql = "SELECT * FROM stupidrat.ad_statistic_data ORDER BY date_of_day DESC ,province DESC ,city DESC ,ad_id DESC ";
+        String sql = "SELECT * FROM stupidrat.ad_statistic_data,stupidrat.black_list ORDER BY date_of_day DESC ,province DESC ,city DESC ,ad_id DESC ";
         PreparedStatement preparedStatement = dbConnection.prepareStatement(sql);
         ResultSet resultSet  =preparedStatement.executeQuery();
         while (resultSet.next()){
